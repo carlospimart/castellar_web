@@ -1,0 +1,20 @@
+.SignIn {
+
+    background-color: lightgreen;
+
+}
+#error {
+  color: red;
+}
+#logged {
+    color: green;
+}
+
+.Logo1{
+    width: 10%; 
+    height: 10%;
+ }
+
+ h1 {
+    color: green;
+  }
