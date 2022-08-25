@@ -1,4 +1,10 @@
-.main_text {
-    background-color: tomato;
+body {
+  background-image: url(../images_pages/pattern.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.home_text {
+    background-color: gainsboro;
     color: blue;
+    
   }

@@ -1,22 +1,27 @@
 import React from "react";
-//import "./CSS/SignUp.css"
+import "./CSS/SignUp.css"
+
 class SignUp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
           first_name: "",
           last_name: "",
+          Radio: "",
           date_of_birth: "",
           email: "",
           phone_number: null,
+          username:"",
           password:"",
     
         }
         this.handleFirstNameChange=this.handleFirstNameChange.bind(this);
         this.handleLastNameChange=this.handleLastNameChange.bind(this);
+        this.handleRadio=this.handleRadio.bind(this);
         this.handleDOBChange=this.handleDOBChange.bind(this);
         this.handleEmailChange=this.handleEmailChange.bind(this);  
-        this.handlePhoneChange=this.handlePhoneChange.bind(this); 
+        this.handlePhoneChange=this.handlePhoneChange.bind(this);
+        this.handleUserNameChange=this.handleUserNameChange.bind(this);  
         this.handlePasswordChange=this.handlePasswordChange.bind(this);       
     };
 
@@ -31,6 +36,12 @@ class SignUp extends React.Component {
       last_name: event.target.value,
     });
    }
+   handleRadio(R){
+    this.setState({
+      Radio:R
+    })
+
+  }
     handleDOBChange(event){
       this.setState({
         date_of_birth: event.target.value,
@@ -48,6 +59,14 @@ class SignUp extends React.Component {
     });
 
    }
+
+   handleUserNameChange(event){
+    this.setState({
+    username: event.target.value,
+   });
+   
+   }
+
     handlePasswordChange(event){
        this.setState({
        password: event.target.value,
@@ -64,13 +83,13 @@ class SignUp extends React.Component {
 
   render(){
   return (
-  <div> 
+  <div class="SignUp"> 
   <h1>Sign Up</h1>
   <>
     <p>
     First Name: 
     <input type="text" value= {this.state.first_name} name="first_name"
-      onChange={this.handleFirstNameChange}
+    onChange={this.handleFirstNameChange}
     /> 
     </p>
     <p>
@@ -78,6 +97,14 @@ class SignUp extends React.Component {
     <input type="text" value= {this.state.last_name} name="last_name"
       onChange={this.handleLastNameChange}
     /> 
+    </p>
+    <p>
+    
+    <input type="radio" value="Male" name="Filter"
+        onChange={(e)=>this.handleRadio}/>Male
+    
+    <input type="radio" value="Female" name="Filter"
+        onChange={(e)=>this.handleRadio}/>Female
     </p>
     <p>
     Date of Birth: 
@@ -98,6 +125,12 @@ class SignUp extends React.Component {
     /> 
     </p>
     <p>
+    Username: 
+    <input type="text" value= {this.state.username} name="username"
+      onChange={this.handleUserNameChange}
+    /> 
+    </p>
+    <p>
     Password: 
     <input type="password" value= {this.state.password} name="password"
       onChange={this.handlePasswordChange}
@@ -105,6 +138,7 @@ class SignUp extends React.Component {
     </p>
     <button onClick={() => this.handleClick()}>Submit</button>
     </>
+    
   </div>
   );
 }

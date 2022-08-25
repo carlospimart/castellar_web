@@ -1,11 +1,12 @@
 import React from "react";
+import "./CSS/Profile.css"
 import { useNavigate, useParams } from "react-router-dom";
 
 function Profile() {
   let navigate = useNavigate();
   let { username } = useParams();
   return (
-    <div>
+    <div class="profile_text">
       THIS IS THE PROFILE PAGE FOR {username}!
       <button
         onClick={() => {

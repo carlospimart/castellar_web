@@ -1,0 +1,14 @@
+.search {
+    float: right;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 25px;
+  }
+
+::placeholder {
+    color: black;
+    opacity: 1; 
+    text-align: left;
+}
