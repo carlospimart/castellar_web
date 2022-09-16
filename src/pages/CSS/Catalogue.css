@@ -5,7 +5,10 @@
   }
 
 #book_table {
+    background-color: rgb(169, 158, 158);
     color: black;
+    margin-left: auto;
+    margin-right: auto;
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 80%;
@@ -20,7 +23,7 @@
     color: white;
 }
 
-#book_table td, #boo_table th {
+#book_table td, #book_table th {
     border: 1px solid rgb(255, 255, 255);
     padding: 8px;
   }

@@ -1,11 +1,14 @@
 import React from "react";
+import axios from 'axios';
 import {Link} from "react-router-dom";
 import "./CSS/SignIn.css"
 import Logo from './images_pages/Sign_In.png';
-import { useNavigate, useParams } from "react-router-dom";
-
-const username="carlospimart";
-const password="bonpassdemot";
+import { useNavigate} from "react-router-dom";
+import {useEffect} from "react";
+var interval = null;
+var count=0;
+var username_2="";
+var password_2="";
 class SignIn extends React.Component{
   constructor(props) {
     super(props);
@@ -14,6 +17,7 @@ class SignIn extends React.Component{
       Pass: "",
       msg_logged: "",
       msg_error: "",
+      users: []
 
     };
     this.handleTextChange=this.handleTextChange.bind(this);
@@ -34,19 +38,34 @@ class SignIn extends React.Component{
       Pass: event.target.value
     });
   }
-  handleClick() {
-    if(this.state.User==username && this.state.Pass==password){
+  handleClick(e) {
+    
+    //interval = setInterval(()=>{
+    //  alert(counter())},1000)
+    e.preventDefault();
+    this.state.users.forEach((user) => {
+      if(user.username == this.state.User && user.password == this.state.Pass){
+          username_2 = user.username;
+          password_2 = user.password; 
+      }
+    });
+    
+    if(this.state.User==username_2 && this.state.Pass==password_2){
     this.setState({
       msg_logged: "You logged in successfully",
       msg_error: "",
     })
-    let navigate = Navigate()
-    navigate("/Profile")
+    this.props.navigate("/Profile/:" + username_2)
     }else{this.setState({
       msg_logged: "",
       msg_error: "Incorrect Password or Username"
     })}
-    
+  }
+  componentDidMount(){
+    axios.get('http://localhost:1000/Homepage/AllUsers').then(res =>{
+        console.log(res);
+        this.setState({ users : res.data })
+    });
   }
   render() {
     
@@ -70,7 +89,7 @@ class SignIn extends React.Component{
     </p>
     <p>
     <button id = 'submit_button' 
-     onClick={() => this.handleClick()}>Sign In</button>
+     onClick={(e) => this.handleClick(e)}>Sign In</button>
     </p>
     <p>
     <div id='logged'>{this.state.msg_logged}</div>
@@ -86,12 +105,19 @@ class SignIn extends React.Component{
  }
  
 }
-function Navigate() {
+export function SignIn2(props) {
+
+  const navigate = useNavigate();
+  return <SignIn navigate={navigate}></SignIn> 
   
-  
-  let navigate = useNavigate();
-  return (
-    navigate
-  )
 }
+function counter(){
+  
+  count = count +1
+  if(count==1){
+    clearInterval(interval);
+  }
+  return count;
+}
+
 export default SignIn;

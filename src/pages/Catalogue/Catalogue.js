@@ -1,34 +1,35 @@
 import React from "react";
-import "./CSS/Catalogue.css"
-function Catalogue() {
+import { useLocation } from "react-router-dom";
+import "../CSS/Catalogue.css"
+import CatalogueTable from './CatalogueTable';
+
+function Catalogue (){
+
+  const value="hello";
+  
   return (
    <>
   <div class="catalogue_text"> THIS IS THE CATALOGUE PAGE
   <p> Welcome to Castellar Web</p>
-  <p>Welcome to our shop
-
+  <p> Welcome to our shop</p>
   <table id='book_table'>
   <tr>
     <th>Title</th>
     <th>Year</th>
     <th>Language</th>
+    <th>Author</th>
   </tr>
-  <tr>
-    <td>The picture of Dorian Grey</td>
-    <td>1956</td>
-    <td>English</td>
-  </tr>
-  <tr>
-    <td> L'Étranger</td>
-    <td>1984</td>
-    <td>French</td>
-  </tr>
+   <CatalogueTable/>
    </table>
-   </p>
+   
+   <h1>End of Catalogue</h1>
   </div>
+
+  
   </> 
    
   );
 }
+
 
 export default Catalogue;

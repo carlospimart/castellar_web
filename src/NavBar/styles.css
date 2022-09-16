@@ -44,10 +44,14 @@
  }
 
 .Logo_Sign_In{
-   width: 8%; 
-   height: 8%;
+   float:left;
+   margin-left: none;
+   width: 35px; 
+   height: 35px;
 }
-
+#sign_in_text {
+  margin-top: 50px;
+}
 .dropdown {
   float: left;
   overflow: hidden;

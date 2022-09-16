@@ -1,0 +1,143 @@
+.catalogueBySearch_text {
+  background-color:white;
+  padding-bottom: 700px;
+  
+}
+
+#results {
+  
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: -400px;
+  
+}
+
+li {
+  list-style: none;
+  
+}  
+
+
+.column_mother_1 {
+  width: 10%; 
+  float:left;
+  padding: 10px;
+  min-height: 200px;
+  text-align: justify;
+}
+
+.column_mother_2 {
+  width: 90%; 
+  float:right;
+  padding: 10px;
+  min-height: 200px;
+  text-align: justify;
+}
+
+
+.column {
+  width: 35%; 
+  float:right;
+  padding: 0px;
+  min-height: 200px;
+  text-align: justify;
+}
+
+.rows::after{
+  content:"";
+  display: table;
+  clear: both;
+}
+
+.left_bar {
+  margin-top: 22.5px;
+  margin-right: -20px;;
+}
+.title {
+    color: rgb(21, 79, 118);
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+
+.title:hover {
+  color: blue;
+  cursor: pointer;
+  
+  
+}
+
+.author {
+  color: rgb(16, 55, 81);
+  font-size: 15px;
+}
+
+
+.author:hover {
+color: blue;
+cursor: pointer;
+
+}
+.condition {
+  
+}
+
+#publish {
+  color:grey;
+}
+
+
+#price {
+  font-size: 20px;
+  
+}
+
+#language {
+  color: gray;
+  font-style: italic;
+}
+
+#add_button {
+  padding: 9px 25px;
+  color: white;
+  background-color: brown;
+  border-radius: 10px;
+  border-color: grey;
+  border-style: solid;
+  text-align: center;
+}
+#add_button:hover {
+  color: rgb(225, 214, 214);
+  background-color: darkslategray;
+  border-color: grey;
+}
+
+button div{
+  width:22px;
+  height:20px;
+  background-image: url(./basket2.jpg);   
+  background-size: cover;   
+  mix-blend-mode: multiply;
+  margin-right: 10px;
+}
+
+button div.Logo_add_basket{
+  
+  float: left;
+}
+
+.li_div_top {
+  
+  width: 90%; 
+  
+}
+
+.li_div_bottom {
+  
+  width: 10%; 
+  
+}
+
+
+
+

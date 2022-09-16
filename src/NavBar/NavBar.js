@@ -1,6 +1,6 @@
 import React from "react";
-import SearchBar from "../SearchBar/SearchBar.Js";
-import "../SearchBar/SearchBar.css";
+import SearchBar, {Catalogue_link} from "./SearchBar/SearchBar";
+import "./SearchBar/SearchBar.css";
 import "./styles.css";
 import Logo from '../images/user-login-3057.svg';
 
@@ -8,31 +8,20 @@ import Logo from '../images/user-login-3057.svg';
 import {Link, useMatch, useResolvedPath } from "react-router-dom";
 
 export default  class NavBar extends React.Component{
-  
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: "",
 
-    };
-    this.handleSBarChange=this.handleSBarChange.bind(this);
-    
-  }
-  handleSBarChange(event){
-    this.setState({
-      search: event.target.value
-    });
-
-  }
   render(){
+
   return (
 
   <nav className="nav">
   <Link to="/" className="site-title"> Home </Link>
- 
-  <input type="text" class='search' value={this.state.search} name="Filter" 
-   placeholder="Search" onChange={this.handleSBarChange}/>
-  
+
+  <div>
+     <form>
+     <Catalogue_link/>
+     </form>
+  </div>
+
   <ul>
   <li class="dropdown">
     <button class="dropbtn">Menu
@@ -43,11 +32,15 @@ export default  class NavBar extends React.Component{
     </div>
   </li>
     <CustomLink to="/About"> About </CustomLink>
-    <CustomLink to="/Profile/:"> Profile </CustomLink>
     
-    <CustomLink to="/SignIn"> 
-    <i><img class='Logo_Sign_In' src={Logo} alt=''/></i>
-    Sign In
+    
+    <CustomLink to="/Profile/:"> 
+    <div>
+      <form class="form_signIn">
+        <img class='Logo_Sign_In' src={Logo} alt=''/>
+         <span  id='sign_in_text'>Sign In</span>
+      </form>
+    </div>
     </CustomLink>
     
   </ul>
@@ -67,3 +60,6 @@ function CustomLink({ to, children, ...props }) {
       </li>
     )
   }
+
+  //<input class='Bar'  type="text" value={this.state.search} name="Filter" 
+    //   placeholder='Search' onChange={this.handleSBarChange}/>

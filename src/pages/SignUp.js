@@ -1,5 +1,8 @@
 import React from "react";
 import "./CSS/SignUp.css"
+import axios from "axios";
+
+const url= "http://localhost:1000/Homepage/AddUsers?username="
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -13,7 +16,7 @@ class SignUp extends React.Component {
           phone_number: null,
           username:"",
           password:"",
-    
+
         }
         this.handleFirstNameChange=this.handleFirstNameChange.bind(this);
         this.handleLastNameChange=this.handleLastNameChange.bind(this);
@@ -74,14 +77,22 @@ class SignUp extends React.Component {
 
     }
 
-    handleClick() {
+    handleClick(e) {
         
         alert("You submitted");
+
+        e.preventDefault();
+        axios.post(url+this.state.username+
+        "&password="+this.state.password,{
+		    username: this.state.username,
+		    password: this.state.password,
+     	}).then(res =>{console.log(res.data)})
     }
 
     
 
   render(){
+    
   return (
   <div class="SignUp"> 
   <h1>Sign Up</h1>
@@ -136,7 +147,7 @@ class SignUp extends React.Component {
       onChange={this.handlePasswordChange}
     /> 
     </p>
-    <button onClick={() => this.handleClick()}>Submit</button>
+    <button onClick={(e) => this.handleClick(e)}>Submit</button>
     </>
     
   </div>
