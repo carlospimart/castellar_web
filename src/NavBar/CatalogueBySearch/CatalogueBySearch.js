@@ -36,9 +36,9 @@ class CatalogueBySearch extends React.Component{
   
   render(){
    var data;
-  
+   
    data =this.props.data;
-
+   
    if(data==null){
     data=" ";
    }
@@ -50,7 +50,6 @@ class CatalogueBySearch extends React.Component{
     <div class="top_div">
      <span id="results">Results:</span>
     </div>
-   
     <div class="down_div">
         <div class= 'column_mother_1'>
             <Filters afterYearOnly_2={this.state.afterYearOnly_2}
@@ -61,6 +60,10 @@ class CatalogueBySearch extends React.Component{
                      To={this.state.To} />
         </div>
         <CBSTable data={data}
+                    items={this.props.items}
+                    setItems = {this.props.setItems}
+                    items_values={this.props.items_values}
+                    setIValues = {this.props.setIValues}
                     afterYearOnly_2={this.state.afterYearOnly_2}
                     From={this.state.From}
                     To={this.state.To} />
@@ -76,11 +79,13 @@ class CatalogueBySearch extends React.Component{
   );
 }
 }
-export function CatalogueBySearch_mother(props) {
-
+export function CatalogueBySearch_mother({items, setItems, items_values, setIValues}) {
+  
   const { state } = useLocation();
   var data = state;
-  return <CatalogueBySearch data={data}></CatalogueBySearch> 
+  return <CatalogueBySearch data={data} items={items} setItems={setItems} 
+                            items_values={items_values} setIValues={setIValues} />
+         
   
 }
 

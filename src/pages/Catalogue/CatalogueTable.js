@@ -21,7 +21,8 @@ class CatalogueTable extends React.Component {
     rows.push(
           
           
-          <tr>              
+          <tr> 
+              <td>{book.books_id}</td>     
               <td>{book.title}</td>
               <td>{book.year}</td>
               <td>{book.language.name}</td>

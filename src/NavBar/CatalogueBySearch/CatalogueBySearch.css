@@ -97,7 +97,7 @@ cursor: pointer;
   font-style: italic;
 }
 
-#add_button {
+.add_button {
   padding: 9px 25px;
   color: white;
   background-color: brown;
@@ -106,7 +106,7 @@ cursor: pointer;
   border-style: solid;
   text-align: center;
 }
-#add_button:hover {
+.add_button:hover {
   color: rgb(225, 214, 214);
   background-color: darkslategray;
   border-color: grey;

@@ -14,6 +14,7 @@ function Catalogue (){
   <p> Welcome to our shop</p>
   <table id='book_table'>
   <tr>
+    <th>ID</th>
     <th>Title</th>
     <th>Year</th>
     <th>Language</th>

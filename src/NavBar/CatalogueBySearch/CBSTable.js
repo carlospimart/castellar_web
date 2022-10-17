@@ -1,6 +1,5 @@
 import React from "react";
 import axios from 'axios';
-
 class CBSTable extends React.Component {
 
   state = {
@@ -12,18 +11,30 @@ class CBSTable extends React.Component {
         this.setState({ books : res.data })
     });
   }
+  handleClick(e, id){
+    e.preventDefault();
+    console.log("log: ",  id)
+    this.props.setItems(this.props.items + 1);
+    
+    this.state.books.forEach((book) => {
+    
+     if(id==book.books_id){
+      this.props.items_values.push(
+        book
+      );
+     }
+    })
+  } 
   render(){
 
     const afterYearOnly_2 = this.props.afterYearOnly_2; 
     const From = this.props.From;
     const To = this.props.To;
-
     const data = this.props.data.toLowerCase();
     const rows = [];
-    rows.push()
-
+    rows.push();
     this.state.books.forEach((book) => {
-
+    
         if (book.title.toLowerCase().indexOf(data) === -1) {
             return;
         }
@@ -37,7 +48,6 @@ class CBSTable extends React.Component {
     rows.push(
       
           <li>
-          
               <div class="li_div_top">
               <div class= "column">
 
@@ -47,7 +57,8 @@ class CBSTable extends React.Component {
               <span id="price">£ {book.price}</span>
               </p>
               <p>
-              <button id = 'add_button'>
+              <button value="value" class = 'add_button' 
+                      onClick={(e) => this.handleClick(e, book.books_id)}>
                       <div class='Logo_add_basket'></div>
                           <span class = "tex_button">Add to Basket</span>
               </button>
@@ -59,7 +70,6 @@ class CBSTable extends React.Component {
               
               <div class= "column"> 
 
-              
               <span class='title'>{book.title}</span>
               
                <span class='author'> , &#10098;{book.author[0].first_name} {book.author[0].last_name}
@@ -83,9 +93,10 @@ class CBSTable extends React.Component {
                  
               </div>
               
-          </li>      
+          </li>  
     );
-     
+    
+  
   });
   
   return (

@@ -3,14 +3,20 @@ import SearchBar, {Catalogue_link} from "./SearchBar/SearchBar";
 import "./SearchBar/SearchBar.css";
 import "./styles.css";
 import Logo from '../images/user-login-3057.svg';
-
-
 import {Link, useMatch, useResolvedPath } from "react-router-dom";
 
 export default  class NavBar extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  } 
 
   render(){
-
+    var signIn_2= this.props.sign_in
+    var items= this.props.items
+    
   return (
 
   <nav className="nav">
@@ -29,16 +35,17 @@ export default  class NavBar extends React.Component{
     </button>
     <div class="dropdown-content">
     <Link to="/Catalogue" className="a">Catalogue</Link>
+    <Link to="/About" className="a"> About </Link>
     </div>
   </li>
-    <CustomLink to="/About"> About </CustomLink>
-    
-    
+
+    <CustomLink to="/Basket"> Basket {items}</CustomLink>
+
     <CustomLink to="/Profile/:"> 
     <div>
       <form class="form_signIn">
         <img class='Logo_Sign_In' src={Logo} alt=''/>
-         <span  id='sign_in_text'>Sign In</span>
+         <span  id='sign_in_text'>{signIn_2}</span>
       </form>
     </div>
     </CustomLink>

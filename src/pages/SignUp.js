@@ -16,6 +16,7 @@ class SignUp extends React.Component {
           phone_number: null,
           username:"",
           password:"",
+          message: ""
 
         }
         this.handleFirstNameChange=this.handleFirstNameChange.bind(this);
@@ -78,15 +79,21 @@ class SignUp extends React.Component {
     }
 
     handleClick(e) {
-        
+        console.log("log: ",  e.target.value)
         alert("You submitted");
-
         e.preventDefault();
+
+        if(this.state.username==""){
+          this.setState({
+            message: "Username can not be blank"
+          })
+        }else{
         axios.post(url+this.state.username+
         "&password="+this.state.password,{
 		    username: this.state.username,
 		    password: this.state.password,
      	}).then(res =>{console.log(res.data)})
+    }
     }
 
     
@@ -147,9 +154,9 @@ class SignUp extends React.Component {
       onChange={this.handlePasswordChange}
     /> 
     </p>
-    <button onClick={(e) => this.handleClick(e)}>Submit</button>
+    <button value="value" onClick={(e) => this.handleClick(e)}>Submit</button>
     </>
-    
+    <h2>{this.state.message}</h2>
   </div>
   );
 }

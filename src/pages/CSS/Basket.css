@@ -1,0 +1,36 @@
+
+  .basket_text {
+      margin-top: 10px;
+      background-color: gainsboro;
+      color: blue;
+      height: 500px;
+      width: 100%;
+      
+    }
+
+  .bottom_checkout {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .clear_basket {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  #book_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+#book_table td, #book_table th {
+    border: 1px solid rgb(255, 255, 255);
+    padding: 8px;
+  }
+
+#book_table tr:nth-child(even){background-color: #f2f2f2;}
+
+#book_table tr:hover {background-color: #ddd;}

@@ -1,17 +1,17 @@
 import React,{ useState, useEffect } from "react";
-
 import axios from "axios";
 import "./CSS/Profile.css"
-import { useNavigate, useParams, useLocation} from "react-router-dom";
+import { useNavigate, useParams} from "react-router-dom";
 import useToken from '../useToken';
 import LogeIn, {data_value} from "./LogeIn/LogeIn";
 
 
 
-function Profile() {
+function Profile({sign_in, onSign_In}) {
   
   var name;
-  var {value} = data_value();
+  var {value} = data_value()
+
   const [data, setData] = useState([]);
   
   
@@ -47,12 +47,16 @@ function Profile() {
   //var [value,setButtonText] = useState("positive");
   console.log("value: ", value)
   
-  const changeToken = (e) => 
-  setToken(!token);;
+  const changeToken = (e) => {
+  setToken(!token);
+  onSign_In("Sign In");}
+  
 
 if(!token) {
   
-  return <LogeIn setToken={setToken} />
+  return <LogeIn setToken={setToken} 
+                 sign_in={sign_in}
+                 onSign_In={onSign_In}/>
   
 }
 
@@ -63,7 +67,8 @@ if(!token) {
       <h1>First Name: {value[2]}</h1>
       <h1>Last Name: {value[3]}</h1>
       <h1>Email: {value[4]}</h1>
-
+      <h1>Address: {value[5]}, {value[6]}</h1>
+      <h1>City: {value[7]}</h1>
       <button
         onClick={() => {
           navigate("/About");

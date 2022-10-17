@@ -7,6 +7,7 @@ import "../CSS/SignIn.css"
 import Logo from '../images_pages/Sign_In.png';
 import { useNavigate} from "react-router-dom";
 import useToken from "../../useToken";
+import NavBar from "../../NavBar/NavBar";
 /*var interval = null;
 var count=0;*/
 
@@ -15,9 +16,11 @@ var password_2 = "";
 var first_name_2 = "";
 var last_name_2 = "";
 var email_2 = "";
+var address_2 ="";
+var post_code_2 ="";
+var city_2 ="";
 var user_data = "";
 var pass_data = "";
-
 class LogeIn extends React.Component{
   
   constructor(props) {
@@ -27,7 +30,7 @@ class LogeIn extends React.Component{
       Pass: "",
       msg_logged: "",
       msg_error: "",
-      users: []
+      users: [],
 
     };
     this.handleTextChange=this.handleTextChange.bind(this);
@@ -49,6 +52,10 @@ class LogeIn extends React.Component{
   
   async handleClick(e){
     e.preventDefault();
+    if(username_2 == "" && password_2 == ""){
+      username_2 = " ";
+      password_2 = " ";
+     }
     this.state.users.forEach((user) => {
       if(user.username == username_2 && user.password == password_2){
           user_data = user.username;
@@ -61,7 +68,6 @@ class LogeIn extends React.Component{
       password_2
     });
     
-    
     if(password_2 == pass_data && username_2 == user_data){
       this.setState({
         msg_logged: "You logged in successfully",
@@ -69,8 +75,8 @@ class LogeIn extends React.Component{
       })
       alert("Going to your profile")
       
-    
-    this.props.setToken(token);
+      this.props.onSign_In("My account")
+      this.props.setToken(token);
     
     }else{this.setState({
       msg_logged: "",
@@ -86,10 +92,6 @@ class LogeIn extends React.Component{
     //interval = setInterval(()=>{
     //  alert(counter())},1000)
     
-
-    if(this.state.User==username_2 && this.state.Pass==password_2){
-   
-    //this.props.navigate("/Profile/:" + username_2)
     
   }*/
   componentDidMount(){
@@ -112,6 +114,9 @@ class LogeIn extends React.Component{
               first_name_2 = user_2.first_name
               last_name_2 = user_2.last_name
               email_2 = user_2.email
+              address_2 = user_2.address
+              post_code_2 = user_2.post_code
+              city_2 = user_2.city
             
           }
         });
@@ -146,9 +151,9 @@ class LogeIn extends React.Component{
          <a id='question'>You don't have an account?  <Link id='link_sing_up' to="/SignUp">Create an account</Link>   </a>  
         
       </label>
+      <h1>{this.state.switcher_1}</h1>
     </div>
     </>
-
   );
  }
  
@@ -162,7 +167,8 @@ class LogeIn extends React.Component{
 
 export function data_value() {
 
-  const value = [username_2, password_2, first_name_2, last_name_2, email_2];
+  const value = [username_2, password_2, first_name_2, last_name_2, email_2, address_2, 
+                 post_code_2, city_2];
 
   return {value}
   
