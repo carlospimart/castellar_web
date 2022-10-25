@@ -1,0 +1,13 @@
+.confirmation_text {
+    padding: auto;
+    height: 500px;
+    width: 100%;
+    background-color: gainsboro;
+  }
+
+.confirmation_message {
+  margin: 0px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+}

@@ -21,7 +21,8 @@ li {
 .column_mother_1 {
   width: 10%; 
   float:left;
-  padding: 10px;
+  padding-top: 10px;
+  padding-left: 30px;
   min-height: 200px;
   text-align: justify;
 }
@@ -110,6 +111,7 @@ cursor: pointer;
   color: rgb(225, 214, 214);
   background-color: darkslategray;
   border-color: grey;
+  cursor: pointer;
 }
 
 button div{
@@ -137,6 +139,33 @@ button div.Logo_add_basket{
   width: 10%; 
   
 }
+
+.years_form{
+  width: 100px;
+  background-color: lavender;
+  border-radius: 60px;
+  color:black
+}
+.years_form:hover{
+  background-color: rgb(143, 228, 224);
+  color: rgb(86, 86, 80);
+  font-weight: bold;
+}
+.years_form::placeholder{
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.language{
+  color: rgb(30, 30, 107);
+  font-style: italic;
+  font-weight: bold;
+}
+
+
 
 
 

@@ -4,7 +4,9 @@ body {
   background-size: cover;
 }
 .home_text {
-    background-color: gainsboro;
-    color: blue;
     
+    opacity: 80%;
+    color: beige;
+    font-size: 40px;
+    font-weight: bold;  
   }

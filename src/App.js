@@ -8,6 +8,7 @@ import {SignIn2} from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Basket from "./pages/Basket";
 import Checkout from "./pages/Checkout";
+import Confirmation_page from "./pages/Confirmation_page";
 import Profile from "./pages/Profile";
 import ErrorPage from "./pages/ErrorPage";
 import {CatalogueBySearch_mother} from "./NavBar/CatalogueBySearch/CatalogueBySearch";
@@ -47,13 +48,17 @@ function App() {
                                                  setTotalPrice={setTotalPrice}
                                                  />} />
 
-          <Route path="/Basket/Checkout" element={<Checkout sign_in={sign_in}
+          <Route path="/Basket/Checkout" element={<Checkout 
+                                                 items={items} 
+                                                 setItems={setItems}
+                                                 sign_in={sign_in}
                                                  onSign_In={setSign_In}
                                                  items_values={items_values}
                                                  setIValues={setIValues}
                                                  total_price={total_price}
                                                  setTotalPrice={setTotalPrice}
                                                  />} />     
+          <Route path="/Basket/Checkout/Confirmation_page" element={<Confirmation_page/>} />   
 
           <Route path="/SignIn" element={<SignIn2 />} />
           <Route path="/SignUp" element={<SignUp />} />

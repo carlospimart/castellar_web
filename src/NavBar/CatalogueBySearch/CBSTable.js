@@ -28,7 +28,13 @@ class CBSTable extends React.Component {
   render(){
 
     const afterYearOnly_2 = this.props.afterYearOnly_2; 
+    const price=this.props.price;             
+    const min=this.props.min;
+    const max=this.props.max;
     const From = this.props.From;
+    const english=this.props.english
+    const spanish=this.props.spanish
+    const french=this.props.french                
     const To = this.props.To;
     const data = this.props.data.toLowerCase();
     const rows = [];
@@ -38,6 +44,15 @@ class CBSTable extends React.Component {
         if (book.title.toLowerCase().indexOf(data) === -1) {
             return;
         }
+        // Price
+        if (price && book.price < min) {
+          return;
+        }
+        if (price && book.price > max) {
+          return;
+        }
+
+        //Years of Publication
         if (afterYearOnly_2 && book.year < From) {
           return;
         }
@@ -45,6 +60,12 @@ class CBSTable extends React.Component {
           return;
         }
 
+        //Languages
+        if ((english !=true && book.language.name == "English") || (french !=true && book.language.name == "French"
+        ||  (spanish !=true && book.language.name == "spanish"))) {
+          return ;
+        }
+        
     rows.push(
       
           <li>
