@@ -1,5 +1,10 @@
 .error_text {
-    background-color: gainsboro;
-    color: Blue;
-    
+    background-color: white;
+    height: 500px;
   }
+
+.error_number {
+  margin-top: 0px;
+  font-size: 100px;
+  font-weight: bold;
+}

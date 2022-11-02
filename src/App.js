@@ -2,10 +2,11 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 import NavBar from "./NavBar/NavBar";
 import Home from "./pages/Home";
+import Footer from "./pages/Footer";
 import Catalogue from "./pages/Catalogue/Catalogue";
 import About from "./pages/About";
 import {SignIn2} from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
+import {SignUp} from "./pages/SignUp";
 import Basket from "./pages/Basket";
 import Checkout from "./pages/Checkout";
 import Confirmation_page from "./pages/Confirmation_page";
@@ -65,7 +66,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
       </Routes>
       </div>
-      <div> Foooter </div>
+      <div> <Footer/> </div>
     </Router>
   );
 }

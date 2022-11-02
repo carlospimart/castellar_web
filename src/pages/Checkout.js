@@ -122,7 +122,7 @@ const handleChange = (e) => {
   
   const handleRadio=(e)=>{
     if(e.target.value == "user"){
-      setBuyer(value[2]+" "+value[3])
+      setBuyer(value[4]+" "+value[5])
     }else{
       setBuyer(first_name +" "+ last_name)
     }
@@ -130,7 +130,7 @@ const handleChange = (e) => {
 
   const handleRadioAddress=(e)=>{
     if(e.target.value == "user"){
-      setAddressBuyer(value[5]+" ("+value[6] + "), "+value[7])
+      setAddressBuyer(value[7]+" ("+value[8] + "), "+value[9])
     }else{
       setAddressBuyer(address+" ("+ postcode+"), "+city)
     }
@@ -210,7 +210,7 @@ const handleChange = (e) => {
    <div class="buyer">   
       <input type="radio" value="user" name="Filter"
        onChange={(e)=>handleRadio(e)}/>
-      <a class="data">{value[2]} {value[3]}</a>
+      <a class="data">{value[4]} {value[5]}</a>
    </div>
    <div class="buyer">
       <input type="radio" value="no_user" name="Filter"
@@ -235,9 +235,9 @@ const handleChange = (e) => {
        <div class="address_buyer">       
        <input type="radio" value="user" name="address"
         onChange={(e)=>handleRadioAddress(e)}/>
-       <p>Address: <a class="data">{value[5]}</a></p>
-       <p>Postcode: <a class="data">{value[6]}</a></p>
-       <p>City: <a class="data">{value[7]}</a></p>
+       <p>Address: <a class="data">{value[7]}</a></p>
+       <p>Postcode: <a class="data">{value[8]}</a></p>
+       <p>City: <a class="data">{value[9]}</a></p>
        </div>
        
        <div class="address_buyer">

@@ -1,7 +1,71 @@
 .SignUp {
+    margin-top: -22px;
+    background-image: url(../images_pages/wood_signup.jpg);
+    background-size: cover;
+    padding-bottom: 20px;
+}
 
-    background-color: gainsboro;
+.header {
+    color: beige;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.error {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: red;
+    background: rgba(0, 0, 0, 0.4);
+    width: 300px;
+    margin: auto;
+    
+}
+.form_box {
+    border-radius: 20px;
     justify-content: center;
+    width: 300px;
+    margin:auto;
+    background: rgba(0, 0, 0, 0.4);
+}
+.form_sign_up {
+    border-radius: 20px;
+    background-color: beige;
+    width: 250px;
+}
+
+.form_sign_up:hover {
     
-    
+    background-color: brown;   
+    color: white;
+}
+
+.form_title {
+    color: beige;
+    margin-left: 27px;
+    float: left;
+    line-height: 0px;
+    font-weight: bold;
+}
+
+.genderDoB {
+    padding-top: 20px;
+    margin-bottom: -20px;
+}
+
+.gender {
+    color: beige;
+}
+
+.submit_sign_up {
+    color: black;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+    border-radius: 30px;
+    width: 150px;
+    height: 30px;
+    background-color: beige ;
+}
+
+.submit_sign_up:hover{
+    color: beige;
+    background-color: maroon;
+    cursor: pointer;
 }

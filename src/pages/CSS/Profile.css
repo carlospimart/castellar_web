@@ -1,5 +1,15 @@
-.profile_text {
-    background-color: gainsboro;
-    color: Blue;
-    
+.profile_text_1 {
+    background-color: purple;
+    color: white;
+    margin-top: -16px;
   }
+  .profile_text_2 {
+    background-color: darkolivegreen;
+    color: white;
+  }
+.PI{
+
+  font-size: 30px;
+  font-weight: bold;
+
+}

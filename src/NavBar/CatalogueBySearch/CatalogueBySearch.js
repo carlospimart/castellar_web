@@ -28,7 +28,7 @@ class CatalogueBySearch extends React.Component{
     this.handleLanguage_SPA=this.handleLanguage_SPA.bind(this);
     this.handleFrom=this.handleFrom.bind(this);
     this.handleTo=this.handleTo.bind(this);
-   
+      
   }
   handlePrice(PRC){
     this.setState({
@@ -75,6 +75,8 @@ class CatalogueBySearch extends React.Component{
       To:T
     })
   }
+
+  
   
   render(){
    var data;
@@ -82,7 +84,7 @@ class CatalogueBySearch extends React.Component{
    data =this.props.data;
    
    if(data==null){
-    data=" ";
+    data="        ";
    }
    
   return (
@@ -126,7 +128,7 @@ class CatalogueBySearch extends React.Component{
                     french={this.state.french}
                     spanish={this.state.spanish} 
                     From={this.state.From}
-                    To={this.state.To} />
+                    To={this.state.To}/>
     </div>
    
    

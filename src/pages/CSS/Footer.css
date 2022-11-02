@@ -1,0 +1,10 @@
+.footer_text {
+    background-color: coral;
+    color: blue;
+    text-align: center;
+    margin-top: -16px;
+  }
+
+.msg {
+  color: red;
+}

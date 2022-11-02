@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+var value = 0; 
 class CBSTable extends React.Component {
 
   state = {
@@ -25,6 +26,8 @@ class CBSTable extends React.Component {
      }
     })
   } 
+
+  
   render(){
 
     const afterYearOnly_2 = this.props.afterYearOnly_2; 
@@ -62,10 +65,11 @@ class CBSTable extends React.Component {
 
         //Languages
         if ((english !=true && book.language.name == "English") || (french !=true && book.language.name == "French"
-        ||  (spanish !=true && book.language.name == "spanish"))) {
+        ||  (spanish !=true && book.language.name == "Spanish"))) {
           return ;
         }
-        
+
+    
     rows.push(
       
           <li>
@@ -119,13 +123,13 @@ class CBSTable extends React.Component {
     
   
   });
-  
+  value = rows.length
   return (
    <>
-    <div class= 'column_mother_2'>
+   <span class= 'results_num'>{value} results with "{data}"</span>
+   <div class= 'column_mother_2'>
    <ul> 
    {rows} 
-   
    </ul> 
    
    </div>
@@ -134,5 +138,7 @@ class CBSTable extends React.Component {
   );
 }
 }
+
+
 
 export default CBSTable;

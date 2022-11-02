@@ -8,6 +8,7 @@ import Logo from '../images_pages/Sign_In.png';
 import { useNavigate} from "react-router-dom";
 import useToken from "../../useToken";
 import NavBar from "../../NavBar/NavBar";
+import { Phone } from "@material-ui/icons";
 /*var interval = null;
 var count=0;*/
 
@@ -15,12 +16,16 @@ var username_2 = "";
 var password_2 = "";
 var first_name_2 = "";
 var last_name_2 = "";
+var gender_2="";
+var DoB_2 = "";
 var email_2 = "";
 var address_2 ="";
 var post_code_2 ="";
 var city_2 ="";
 var user_data = "";
 var pass_data = "";
+var phone_number_2 = "";
+var users_id_2 = "";
 class LogeIn extends React.Component{
   
   constructor(props) {
@@ -113,10 +118,15 @@ class LogeIn extends React.Component{
         if (user_2.username == username_2 ) {
               first_name_2 = user_2.first_name
               last_name_2 = user_2.last_name
+              gender_2 = user_2.gender
+              DoB_2 = user_2.dob
               email_2 = user_2.email
               address_2 = user_2.address
               post_code_2 = user_2.post_code
               city_2 = user_2.city
+              phone_number_2 = user_2.phone_number
+              users_id_2 = user_2.users_id
+              
             
           }
         });
@@ -163,12 +173,12 @@ class LogeIn extends React.Component{
   const navigate = useNavigate();
   return <LogeIn navigate={navigate}></LogeIn> 
   
-}*/
+}*/ 
 
 export function data_value() {
 
-  const value = [username_2, password_2, first_name_2, last_name_2, email_2, address_2, 
-                 post_code_2, city_2];
+  const value = [username_2, password_2, gender_2, DoB_2, first_name_2, last_name_2, email_2, address_2, 
+                 post_code_2, city_2, phone_number_2, users_id_2];
 
   return {value}
   

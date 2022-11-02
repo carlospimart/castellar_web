@@ -4,7 +4,7 @@ body {
   background-size: cover;
 }
 .home_text {
-    
+    height: 540px;
     opacity: 80%;
     color: beige;
     font-size: 40px;
