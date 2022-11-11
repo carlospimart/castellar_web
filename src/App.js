@@ -10,7 +10,7 @@ import {SignUp} from "./pages/SignUp";
 import Basket from "./pages/Basket";
 import Checkout from "./pages/Checkout";
 import Confirmation_page from "./pages/Confirmation_page";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Profile/Profile";
 import ErrorPage from "./pages/ErrorPage";
 import {CatalogueBySearch_mother} from "./NavBar/CatalogueBySearch/CatalogueBySearch";
 import React, { useState } from 'react';
@@ -37,7 +37,7 @@ function App() {
                                                        setItems={setItems}
                                                        setIValues={setIValues} />} />
           <Route path="/About" element={<About />} />
-          <Route path="/Profile/:username" element={<Profile sign_in={sign_in}
+          <Route path="/Profile/:" element={<Profile sign_in={sign_in}
                                                              onSign_In={setSign_In}
                                                              />}/>
 

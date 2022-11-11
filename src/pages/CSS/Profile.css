@@ -1,11 +1,7 @@
-.profile_text_1 {
-    background-color: purple;
-    color: white;
-    margin-top: -16px;
-  }
-  .profile_text_2 {
+  .profile_text_1 {
     background-color: darkolivegreen;
     color: white;
+    margin-top: -16px;
   }
 .PI{
 
@@ -13,3 +9,47 @@
   font-weight: bold;
 
 }
+
+.form_PI{
+    border-radius: 20px;
+    background-color: beige;
+    width: 250px;
+}
+
+
+.column_1{
+  background-color: beige;
+  width: 18%; 
+  float:left;
+  min-height: 986px;
+  
+  
+}
+.menu {
+  background-color: #333;
+  color: beige;
+  width: 100%;
+  height:40px;
+  font-weight: bold;
+}
+
+.actived {
+  background-color: #555;
+  color: beige;
+  width: 100%;
+  height:40px;
+  font-weight: bold;
+}
+.menu:hover{
+  background-color: #777;
+  cursor: pointer;
+}
+
+.column_2 {
+  width: 82%; 
+  float:right;
+  min-height: 986px;
+  background-color: purple;
+  color: white;
+}
+

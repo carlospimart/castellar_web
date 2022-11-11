@@ -26,7 +26,7 @@ var user_data = "";
 var pass_data = "";
 var phone_number_2 = "";
 var users_id_2 = "";
-class LogeIn extends React.Component{
+class LogeIn_child extends React.Component{
   
   constructor(props) {
     super(props);
@@ -82,11 +82,14 @@ class LogeIn extends React.Component{
       
       this.props.onSign_In("My account")
       this.props.setToken(token);
-    
+      this.props.navigate("/")
+
     }else{this.setState({
       msg_logged: "",
       msg_error: "Incorrect Password or Username"
-    })}
+    })
+    
+    }
   }
   
   
@@ -184,8 +187,19 @@ export function data_value() {
   
 }
 
-LogeIn.propTypes = {
+LogeIn_child.propTypes = {
   setToken: PropTypes.func.isRequired
 };
 
+export function LogeIn({setToken, sign_in, onSign_In}) {
+  
+  const navigate = useNavigate();
+ 
+  return <LogeIn_child setToken={setToken} 
+                        sign_in={sign_in}
+                        onSign_In={onSign_In}
+                        navigate = {navigate}/>
+         
+  
+}
 export default LogeIn;
