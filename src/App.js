@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './App.css';
 import NavBar from "./NavBar/NavBar";
+import Admin from "./Admin/Admin";
 import Home from "./pages/Home";
 import Footer from "./pages/Footer";
 import Catalogue from "./pages/Catalogue/Catalogue";
@@ -17,19 +18,22 @@ import React, { useState } from 'react';
 
 
 function App() {
-
+  
   var [items_values, setIValues] = useState([])
   var [items, setItems] = useState(0)
   var [sign_in, setSign_In] = useState("Sign In")
+  var [admin, setAdmin] = useState(false)
   var [total_price, setTotalPrice] = useState(0);
-  
   return (
     <Router>
         <NavBar sign_in={sign_in}
-                  items={items}  />
+                items={items}
+                admin={admin}/>
         <div className="container">
       <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Admin/dashboard/control-panel" element={<Admin sign_in={sign_in}
+                                                             onSign_In={setSign_In}/>} />
           <Route path="/Catalogue" element={<Catalogue />} />
           <Route path="/CatalogueBySearch" element={<CatalogueBySearch_mother
                                                        items={items} 
@@ -39,6 +43,7 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Profile/:" element={<Profile sign_in={sign_in}
                                                              onSign_In={setSign_In}
+                                                             setAdmin={setAdmin}
                                                              />}/>
 
           <Route path="/Basket" element={<Basket items_values={items_values}

@@ -76,6 +76,7 @@ function PersonalInformation({value}) {
       var [city, setCity] = useState(value[9])
       var [phone_number, setPhoneNumber] = useState(value[10])
 
+    
   return (
    
   <div>
@@ -114,6 +115,7 @@ function PersonalInformation({value}) {
       <p>Phone Number</p>
       <input class="form_PI" value= {phone_number}
                        onChange= {(e) => handlePhoneNumber(e)}/>
+
       <p><button
         onClick={(e) => {update(e);}}
       >Save</button> &nbsp; {message}

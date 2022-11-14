@@ -9,7 +9,7 @@ import Orders from "./Orders";
 import MyAccount from "./MyAccount";
 
 
-function Profile({sign_in, onSign_In}) {
+function Profile({sign_in, onSign_In, setAdmin}) {
 
   
   const {value} = data_value()
@@ -17,7 +17,7 @@ function Profile({sign_in, onSign_In}) {
   
 
   let { username} = useParams();
-  username = "hello"
+  
   let navigate = useNavigate();
 
   const {token, setToken} = useToken();

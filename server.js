@@ -18,8 +18,9 @@ app.use('/LogeIn', (req, res) => {
   });
 
 app.use('/Admin/dashboard/control-panel', logger, (req, res) => {
-  res.send(
-    "Dashboard for Admins");
+  res.send({
+    tokenAdmin: 'test123'
+  });
   });
 
 app.listen(8080, () => console.log('API is running on http://localhost:8080/LogeIn'));
