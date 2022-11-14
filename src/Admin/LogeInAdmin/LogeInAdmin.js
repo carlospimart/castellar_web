@@ -84,7 +84,7 @@ class LogeInAdmin  extends React.Component{
       this.props.setTokenAdmin(tokenAdmin);
 
     }else{
-      if(admin_data==false){
+      if(password_2 == pass_data && username_2 == user_data){
         this.setState({
           msg_logged: "",
           msg_error: "This user is not admin"
