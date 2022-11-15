@@ -61,9 +61,9 @@ class LogeInAdmin  extends React.Component{
       password_2 = " ";
      }
     this.state.users.forEach((user) => {
-      if(user.username == username_2 && user.password == password_2){
+      if(user.username == username_2 && user.admin_password == password_2){
           user_data = user.username;
-          pass_data = user.password;
+          pass_data = user.admin_password;
           admin_data = user.admin
       }
     });
@@ -148,6 +148,7 @@ class LogeInAdmin  extends React.Component{
     <img class='LogoAdmin' src={Logo} alt=''/>
       <h1>Admin Dashboard</h1>
       <p>
+      <h1>{this.props.user_admin}</h1>
       <input class='form' type="text" value= {this.state.User} name="username"
        placeholder="Username"
         onChange={this.handleTextChange}
@@ -155,7 +156,7 @@ class LogeInAdmin  extends React.Component{
       </p>
       <p>
       <input class='form' type="password" value={this.state.Pass} name="password"
-      placeholder="Password"
+      placeholder="Admin Password"
       onChange={this.handlePassChange}
       />
       </p>

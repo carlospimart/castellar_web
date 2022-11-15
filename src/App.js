@@ -22,18 +22,24 @@ function App() {
   var [items_values, setIValues] = useState([])
   var [items, setItems] = useState(0)
   var [sign_in, setSign_In] = useState("Sign In")
-  var [admin, setAdmin] = useState(false)
+  
   var [total_price, setTotalPrice] = useState(0);
+  var [sign_in_admin, setSign_In_admin] = useState(<></>)
+  var [user_admin, setUser_admin] = useState("")                      
   return (
+  
     <Router>
         <NavBar sign_in={sign_in}
                 items={items}
-                admin={admin}/>
+                sign_in_admin={sign_in_admin}  
+                />
         <div className="container">
       <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
           <Route path="/Admin/dashboard/control-panel" element={<Admin sign_in={sign_in}
-                                                             onSign_In={setSign_In}/>} />
+                                                             onSign_In={setSign_In}
+                                                             user_admin={user_admin}
+                                                             />} />
           <Route path="/Catalogue" element={<Catalogue />} />
           <Route path="/CatalogueBySearch" element={<CatalogueBySearch_mother
                                                        items={items} 
@@ -43,7 +49,9 @@ function App() {
           <Route path="/About" element={<About />} />
           <Route path="/Profile/:" element={<Profile sign_in={sign_in}
                                                              onSign_In={setSign_In}
-                                                             setAdmin={setAdmin}
+                                                             sign_in_admin={sign_in_admin}
+                                                             onSign_In_admin={setSign_In_admin}
+                                                             onUser_admin={setUser_admin}
                                                              />}/>
 
           <Route path="/Basket" element={<Basket items_values={items_values}
@@ -67,12 +75,14 @@ function App() {
           <Route path="/Basket/Checkout/Confirmation_page" element={<Confirmation_page/>} />   
 
           <Route path="/SignIn" element={<SignIn2 />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/SignUp" element={<SignUp/>} />
           <Route path="*" element={<ErrorPage />} />
       </Routes>
       </div>
-      <div> <Footer/> </div>
+      <div> <Footer /> </div>
+      
     </Router>
+    
   );
 }
 

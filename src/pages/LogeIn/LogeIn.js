@@ -23,9 +23,11 @@ var post_code_2 ="";
 var city_2 ="";
 var user_data = "";
 var pass_data = "";
+var admin_data = false;
 var phone_number_2 = "";
 var users_id_2 = "";
-var admin_2 = false; 
+var admin_2 = false;
+var admin_password_2 = ""; 
 class LogeIn_child extends React.Component{
   
   constructor(props) {
@@ -64,7 +66,9 @@ class LogeIn_child extends React.Component{
     this.state.users.forEach((user) => {
       if(user.username == username_2 && user.password == password_2){
           user_data = user.username;
-          pass_data = user.password; 
+          pass_data = user.password;
+          admin_data = user.admin 
+          this.props.onUser_admin(user.username)
       }
     });
 
@@ -79,18 +83,22 @@ class LogeIn_child extends React.Component{
         msg_error: "",
       })
       alert("Going to your profile")
+      
       this.props.onSign_In("My account")
+      if(admin_data==true){
+      this.props.onSign_In_admin(<Link to="/Admin/dashboard/control-panel" className="site-title"> Admin </Link>);
+      }
       this.props.setToken(token);
       this.props.navigate("/")
 
-    }else{this.setState({
+    }else{
+      this.setState({
       msg_logged: "",
       msg_error: "Incorrect Password or Username"
     })
     
     }
   }
-  
   
 
   
@@ -129,6 +137,7 @@ class LogeIn_child extends React.Component{
               phone_number_2 = user_2.phone_number
               users_id_2 = user_2.users_id
               admin_2 = user_2.admin
+              admin_password_2 = user_2.admin_password
               
             
           }
@@ -165,6 +174,7 @@ class LogeIn_child extends React.Component{
         
       </label>
       <h1>{this.state.switcher_1}</h1>
+      
     </div>
     </>
   );
@@ -181,7 +191,7 @@ class LogeIn_child extends React.Component{
 export function data_value() {
 
   const value = [username_2, password_2, gender_2, DoB_2, first_name_2, last_name_2, email_2, address_2, 
-                 post_code_2, city_2, phone_number_2, users_id_2, admin_2];
+                 post_code_2, city_2, phone_number_2, users_id_2, admin_2, admin_password_2];
 
   return {value}
   
@@ -191,14 +201,18 @@ LogeIn_child.propTypes = {
   setToken: PropTypes.func.isRequired
 };
 
-export function LogeIn({setToken, sign_in, onSign_In}) {
+export function LogeIn({setToken, sign_in, onSign_In, onSign_In_admin,onUser_admin={onUser_admin}  }) {
   
   const navigate = useNavigate();
  
   return <LogeIn_child setToken={setToken} 
                         sign_in={sign_in}
                         onSign_In={onSign_In}
-                        navigate = {navigate}/>
+                        navigate = {navigate}
+                        onSign_In_admin={onSign_In_admin}
+                        onUser_admin={onUser_admin}  
+                        />
+                        
          
   
 }

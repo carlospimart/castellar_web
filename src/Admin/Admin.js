@@ -7,7 +7,7 @@ import Languages from "./Languages";
 import { useNavigate, useParams} from "react-router-dom";
 import useTokenAdmin from '.././UseTokenAdmin';
 
-function Admin({sign_in, onSign_In}) {
+function Admin({sign_in, onSign_In, user_admin}) {
 
   const [component, setComponent] = useState(<Items/>)
   const [actived, setActive] = useState("")
@@ -37,13 +37,16 @@ function Admin({sign_in, onSign_In}) {
 
   const changeToken = (e) => {
     setTokenAdmin(!tokenAdmin);
+    onSign_In("My account");
  }
   
  if(!tokenAdmin) {
   
   return <LogeInAdmin setTokenAdmin={setTokenAdmin} 
                  sign_in={sign_in}
-                 onSign_In={onSign_In}/>
+                 onSign_In={onSign_In}
+                 user_admin={user_admin}
+                 />
   
 }
   return (

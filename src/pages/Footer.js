@@ -1,7 +1,7 @@
 import React from "react";
 import "./CSS/Footer.css"
 
-function Footer() {
+function Footer({key_admin}) {
   return (
   <div class="footer_text">
   <p>Footer</p>

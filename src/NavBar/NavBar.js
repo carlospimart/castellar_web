@@ -4,31 +4,27 @@ import "./SearchBar/SearchBar.css";
 import "./styles.css";
 import Logo from '../images/user-login-3057.svg';
 import {Link, useMatch, useResolvedPath } from "react-router-dom";
+import Admin from "../Admin/Admin";
 
 export default  class NavBar extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      admin_component: <></>,
+      
     };
-  } 
+  }
   
   
   render(){
     var signIn_2= this.props.sign_in
     var items= this.props.items
 
-    if(this.props.admin==true){
-      this.state.admin_component = <Link to="/About" className="a"> Admin </Link>
-    }else{
-      this.state.admin_component = <></>
-    }
     
   return (
 
   <nav className="nav">
   <Link to="/" className="site-title"> Home </Link>
-  {this.state.admin_component} 
+  {this.props.sign_in_admin}
   <div>
      <form>
      <Catalogue_link/>

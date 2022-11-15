@@ -9,7 +9,7 @@ import Orders from "./Orders";
 import MyAccount from "./MyAccount";
 
 
-function Profile({sign_in, onSign_In, setAdmin}) {
+function Profile({sign_in, onSign_In, onSign_In_admin, onUser_admin}) {
 
   
   const {value} = data_value()
@@ -52,7 +52,6 @@ function Profile({sign_in, onSign_In, setAdmin}) {
   
   
   //var [value,setButtonText] = useState("positive");
-  console.log("value: ", value)
 
   const changePI = (e) => {
     setActive(e.target.id)
@@ -77,24 +76,25 @@ function Profile({sign_in, onSign_In, setAdmin}) {
   const changeToken = (e) => {
      setToken(!token);
      onSign_In("Sign In");
+     onSign_In_admin(<></>);
   }
 
-  
-  
 
 if(!token) {
   
   return <LogeIn setToken={setToken} 
                  sign_in={sign_in}
-                 onSign_In={onSign_In}/>
+                 onSign_In={onSign_In}
+                 onSign_In_admin={onSign_In_admin}
+                 onUser_admin={onUser_admin}
+                 />
   
 }
   
-  
   return (
+    
     <div class="profile_text_1">
      <p>Welcome Back {value[4]}</p>
-
      <div className="Menu">
      <div className="column_1">
          
